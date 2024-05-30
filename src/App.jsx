@@ -48,7 +48,7 @@ function App() {
         
     }
     // render every time the filter changes
-    useEffect(()=>{getData()},[filter])
+    useEffect(()=>{getData()},[])
   return (
     <>
       <div className='container'>
@@ -59,7 +59,7 @@ function App() {
           <h6 className='m-1'>My Todos</h6>
           <div className='d-flex' >
             <h6 className='m-1'>Status Filter:</h6>
-            <div class="dropdown">
+            <div className="dropdown">
                 <button className="btn btn-sm dropdown-toggle m" style={filterStyle} type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span className='text-light'>{filter}</span>
                 </button>
@@ -74,7 +74,7 @@ function App() {
         </div>
         {/* {console.log(filter)} */}
         <div className='cardArea d-flex flex-wrap gap-4 mt-2 '>
-         {taskdata.map((element)=><Card {...element} url={url} taskData={taskdata} setTaskData={setTaskData}/>)}
+         {taskdata.map((element,i)=><Card key={i} {...element} url={url} taskData={taskdata} setTaskData={setTaskData}/>)}
         </div>
     </div>
     </>
